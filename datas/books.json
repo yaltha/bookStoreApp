@@ -1,0 +1,22 @@
+[
+    {
+      "id": "uuidv4()",
+      "image": "../assets/books_images/bookstore-logo.png",
+      "title": "Book Titlw One",
+      "author": "Author Name Book One",
+      "pages": 250,
+      "price": 45.53,
+      "decription":
+        "Tempor ipsum mollit aute cillum non occaecat laboris commodo ex. Nulla commodo aute minim sit ad in nulla exercitation amet voluptate laboris ea. Ut occaecat consequat officia dolor nulla velit reprehenderit magna adipisicing dolor."
+    },
+    {
+      "id": "uuidv4()",
+      "image": "../assets/books_images/bookstore-logo.png",
+      "title": "Book Titlw Two",
+      "author": "Author Name Book Two",
+      "pages": 792,
+      "price": 66.29,
+      "decription":
+        "Sunt enim ex officia non ut est aute proident consequat dolore amet ex non. Labore tempor occaecat aute fugiat laboris sunt occaecat. Adipisicing elit ex cillum cillum proident. Magna do quis do deserunt cupidatat quis ullamco minim aliqua. Enim aliquip elit fugiat irure sint velit pariatur anim voluptate eiusmod ea cupidatat."
+    }
+  ]
