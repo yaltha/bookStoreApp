@@ -2,18 +2,24 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const BookProfile = ({ navigation, book }) => {
+import { FontAwesome } from "@expo/vector-icons";
+
+const BookProfile = ({ navigation, route }) => {
+  const { image, title, author, price } = route.params;
   return (
     <View>
-      <TouchableOpacity style={} onPress={() => navigation.goBack()}>
+      <TouchableOpacity
+        style={styles._btnBack}
+        onPress={() => navigation.goBack()}
+      >
         {" "}
         <FontAwesome name="left-arrow" size={32} color="lightgrey" />
       </TouchableOpacity>
-      <View>{book.image}</View>
-      <Text>{book.title}</Text>
-      <Text>{book.author}</Text>
+      <View>{image}</View>
+      <Text>{title}</Text>
+      <Text>{author}</Text>
       <View></View>
-      <Text>{book.price}</Text>
+      <Text>{price}</Text>
 
       <TouchableOpacity>
         <Text>Buy</Text>
@@ -22,26 +28,25 @@ const BookProfile = ({ navigation, book }) => {
         <Text>Add to Cart</Text>
       </TouchableOpacity>
 
-      {/* book details */}
       <Text>
         Title:
-        <Text>{book.title}</Text>
+        <Text>{title}</Text>
       </Text>
       <Text>
         Author:
-        <Text>{book.author}</Text>
+        <Text>{author}</Text>
       </Text>
       <Text>
         Release Date:
-        <Text>{book.releaseDate}</Text>
+        <Text>{releaseDate}</Text>
       </Text>
       <Text>
         Rating:
-        <Text>{book.rating}</Text>
+        <Text>{rating}</Text>
       </Text>
       <Text>
         Description:
-        <Text>{book.descriptions}</Text>
+        <Text>{descriptions}</Text>
       </Text>
     </View>
   );
@@ -49,4 +54,9 @@ const BookProfile = ({ navigation, book }) => {
 
 export default BookProfile;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  _btnBack: {
+    width: 50,
+    height: 50,
+  },
+});

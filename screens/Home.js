@@ -4,15 +4,14 @@ import { FontAwesome } from "@expo/vector-icons";
 import { v4 as uuidv4 } from "uuid";
 
 import datas from "../datas/books.json";
+
 import Book from "./Book";
-import { useState } from "react";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 
 const Home = ({ navigation }) => {
   const [books, setBooks] = useState(datas);
   return (
     <View style={styles._container}>
-      //?{/* HEADER */}
       <Text>Welcome</Text>
       <Text>to Book Store</Text>
       <TouchableOpacity
@@ -20,18 +19,13 @@ const Home = ({ navigation }) => {
         onPress={() => {
           navigation.navigate("Account");
         }}
-      >
-        {/* icon my account */}
-      </TouchableOpacity>
-      {/* search bar */}
+      ></TouchableOpacity>
       <View>
-        {/* icon */}
         <TextInput
           style={styles._textInputSearch}
           placeholder="search a book here..."
         />
       </View>
-      //?{/*  NEW RELEASE */}
       <View style={styles._newReleaseContainer}>
         <Text>New Release</Text>
         <FlatList
@@ -43,7 +37,6 @@ const Home = ({ navigation }) => {
           horizontal={true}
         />
       </View>
-      //?{/* BEST SELLING */}
       <View style={styles._newBestSellingContainer}>
         <Text>Best Selling</Text>
         <FlatList

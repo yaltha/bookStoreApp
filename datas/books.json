@@ -1,6 +1,6 @@
 [
     {
-      "id": "uuidv4()",
+      "id": "book_1",
       "image": "../assets/books_images/bookstore-logo.png",
       "title": "Book Titlw One",
       "author": "Author Name Book One",
@@ -10,7 +10,7 @@
         "Tempor ipsum mollit aute cillum non occaecat laboris commodo ex. Nulla commodo aute minim sit ad in nulla exercitation amet voluptate laboris ea. Ut occaecat consequat officia dolor nulla velit reprehenderit magna adipisicing dolor."
     },
     {
-      "id": "uuidv4()",
+      "id": "book_2",
       "image": "../assets/books_images/bookstore-logo.png",
       "title": "Book Titlw Two",
       "author": "Author Name Book Two",
