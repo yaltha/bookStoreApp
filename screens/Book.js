@@ -11,7 +11,7 @@ const Book = ({ navigation, book }) => {
         navigation.navigate("BookProfile", book);
       }}
     >
-      <Image source={book.image} style={styles._img} />
+      <Image source={image} style={styles._img} />
       <Text>{book.title}</Text>
     </TouchableOpacity>
   );
