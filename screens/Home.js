@@ -29,7 +29,7 @@ const Home = ({ navigation }) => {
       <View style={styles._newReleaseContainer}>
         <Text>New Release</Text>
         <FlatList
-          data={datas}
+          data={books}
           renderItem={({ book }) => (
             <Book book={book} navigation={navigation} />
           )}
@@ -40,7 +40,7 @@ const Home = ({ navigation }) => {
       <View style={styles._newBestSellingContainer}>
         <Text>Best Selling</Text>
         <FlatList
-          data={datas}
+          data={books}
           renderItem={({ book }) => (
             <Book book={book} navigation={navigation} />
           )}
