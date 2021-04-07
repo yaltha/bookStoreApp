@@ -5,10 +5,11 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
 
 const BookProfile = ({ navigation, route }) => {
-  const { image, title, author, price } = route.params;
+  const { itemId } = route.params;
   return (
     <View>
-      <TouchableOpacity
+      <Text>itemId: {JSON.stringify(itemId)}</Text>
+      {/* <TouchableOpacity
         style={styles._btnBack}
         onPress={() => navigation.goBack()}
       >
@@ -26,9 +27,9 @@ const BookProfile = ({ navigation, route }) => {
       </TouchableOpacity>
       <TouchableOpacity>
         <Text>Add to Cart</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
-      <Text>
+      {/* <Text>
         Title:
         <Text>{title}</Text>
       </Text>
@@ -47,7 +48,7 @@ const BookProfile = ({ navigation, route }) => {
       <Text>
         Description:
         <Text>{descriptions}</Text>
-      </Text>
+      </Text> */}
     </View>
   );
 };

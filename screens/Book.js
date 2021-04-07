@@ -1,19 +1,13 @@
 import React from "react";
-import { Image, StyleSheet, Text } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const Book = ({ navigation, book }) => {
+const Book = ({ title }) => {
   return (
-    <TouchableOpacity
-      style={styles._container}
-      title="View Book"
-      onPress={() => {
-        navigation.navigate("BookProfile", book);
-      }}
-    >
-      <Image source={image} style={styles._img} />
-      <Text>{book.title}</Text>
-    </TouchableOpacity>
+    <View style={styles._container}>
+      <Image style={styles._img} />
+      <Text style={styles._bookTitle}>{title}</Text>
+    </View>
   );
 };
 
@@ -27,12 +21,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     margin: 10,
     flex: 1,
-    justifyContent: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
   },
   _img: {
     width: 120,
     height: 120,
     position: "absolute",
     backgroundColor: "white",
+    alignSelf: "baseline",
   },
+  _bookTitle: {},
 });
