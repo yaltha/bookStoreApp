@@ -19,17 +19,7 @@ export default BookNewRelease;
 
 const styles = StyleSheet.create({
   _book: {
-    margin: 10,
-
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
+    margin: 3,
   },
   _bookImage: {
     width: 150,
@@ -38,8 +28,12 @@ const styles = StyleSheet.create({
   },
   _bookTitle: {
     fontFamily: "Montserrat_700Bold",
-
     color: "#3d3d3d",
     marginTop: 5,
+    fontSize: 13,
+  },
+  _bookAuthor: {
+    fontFamily: "Montserrat_400Regular",
+    fontSize: 12,
   },
 });

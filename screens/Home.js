@@ -13,33 +13,19 @@ import { v4 as uuidv4 } from "uuid";
 
 import BookNewRelease from "./BookNewRelease";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import BookBestSelling from "./BookBestSelling";
 
 const Home = ({ navigation }) => {
   const [books, setBooks] = useState(SECTIONS);
 
-  const Book = ({ item }) => {
-    return (
-      <TouchableOpacity
-        style={styles._book}
-        onPress={() => navigation.navigate("BookProfile", { itemId: item.key })}
-      >
-        <Image
-          source={{ uri: item.uri }}
-          style={styles._bookImage}
-          resizeMode="cover"
-        />
-        <Text style={styles._bookTitle}>{item.title}</Text>
-        <Text style={styles._bookAuthor}>{item.author}</Text>
-      </TouchableOpacity>
-    );
-  };
-
   const renderItemFlatlist = ({ item }) => {
-    return <BookNewRelease item={item} />;
+    return <BookNewRelease item={item} navigation={navigation} />;
   };
 
   const renderItemSection = ({ item, section }) =>
-    section.horizontal ? null : <Book item={item} />;
+    section.horizontal ? null : (
+      <BookBestSelling item={item} navigation={navigation} />
+    );
 
   return (
     <View style={styles._container}>
@@ -83,7 +69,7 @@ const styles = StyleSheet.create({
     color: "#6b6b6b",
     marginTop: 20,
     marginBottom: 5,
-    paddingLeft: 10,
+    paddingLeft: 5,
   },
   _book: {
     margin: 10,
@@ -111,7 +97,7 @@ const SECTIONS = [
         author: "Author Name Book One",
         pages: 250,
         price: 45.53,
-        decription:
+        description:
           "Tempor ipsum mollit aute cillum non occaecat laboris commodo ex. Nulla commodo aute minim sit ad in nulla exercitation amet voluptate laboris ea. Ut occaecat consequat officia dolor nulla velit reprehenderit magna adipisicing dolor.",
       },
       {
@@ -121,7 +107,7 @@ const SECTIONS = [
         author: "Author Name Book Two",
         pages: 792,
         price: 66.29,
-        decription:
+        description:
           "Sunt enim ex officia non ut est aute proident consequat dolore amet ex non. Labore tempor occaecat aute fugiat laboris sunt occaecat. Adipisicing elit ex cillum cillum proident. Magna do quis do deserunt cupidatat quis ullamco minim aliqua. Enim aliquip elit fugiat irure sint velit pariatur anim voluptate eiusmod ea cupidatat.",
       },
       {
@@ -131,7 +117,7 @@ const SECTIONS = [
         author: "Author Name Book Three",
         pages: 792,
         price: 66.29,
-        decription:
+        description:
           "Est veniam amet nisi consequat esse officia pariatur. Elit deserunt ex reprehenderit irure et laboris elit occaecat. Duis duis tempor aute irure velit eiusmod proident. Incididunt laborum nostrud esse duis.",
       },
     ],
@@ -147,7 +133,7 @@ const SECTIONS = [
         author: "Author Name Book One",
         pages: 250,
         price: 45.53,
-        decription:
+        description:
           "Tempor ipsum mollit aute cillum non occaecat laboris commodo ex. Nulla commodo aute minim sit ad in nulla exercitation amet voluptate laboris ea. Ut occaecat consequat officia dolor nulla velit reprehenderit magna adipisicing dolor.",
       },
       {
@@ -157,7 +143,7 @@ const SECTIONS = [
         author: "Author Name Book Two",
         pages: 792,
         price: 66.29,
-        decription:
+        description:
           "Sunt enim ex officia non ut est aute proident consequat dolore amet ex non. Labore tempor occaecat aute fugiat laboris sunt occaecat. Adipisicing elit ex cillum cillum proident. Magna do quis do deserunt cupidatat quis ullamco minim aliqua. Enim aliquip elit fugiat irure sint velit pariatur anim voluptate eiusmod ea cupidatat.",
       },
       {
@@ -167,7 +153,7 @@ const SECTIONS = [
         author: "Author Name Book Three",
         pages: 792,
         price: 66.29,
-        decription:
+        description:
           "Est veniam amet nisi consequat esse officia pariatur. Elit deserunt ex reprehenderit irure et laboris elit occaecat. Duis duis tempor aute irure velit eiusmod proident. Incididunt laborum nostrud esse duis.",
       },
     ],

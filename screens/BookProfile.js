@@ -15,8 +15,9 @@ const BookProfile = ({ navigation, route }) => {
       >
         {" "}
         <FontAwesome name="left-arrow" size={32} color="lightgrey" />
-      </TouchableOpacity>
-      <View>{image}</View>
+      </TouchableOpacity> */}
+
+      {/* <View>{image}</View>
       <Text>{title}</Text>
       <Text>{author}</Text>
       <View></View>
