@@ -11,9 +11,7 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { v4 as uuidv4 } from "uuid";
 
-// import datas from "../datas/books.json";
-
-import Book from "./Book";
+import BookNewRelease from "./BookNewRelease";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 
 const Home = ({ navigation }) => {
@@ -21,31 +19,27 @@ const Home = ({ navigation }) => {
 
   const Book = ({ item }) => {
     return (
-      <View style={styles._book}>
+      <TouchableOpacity
+        style={styles._book}
+        onPress={() => navigation.navigate("BookProfile", { itemId: item.key })}
+      >
         <Image
           source={{ uri: item.uri }}
           style={styles._bookImage}
           resizeMode="cover"
         />
         <Text style={styles._bookTitle}>{item.title}</Text>
-      </View>
+        <Text style={styles._bookAuthor}>{item.author}</Text>
+      </TouchableOpacity>
     );
   };
 
   const renderItemFlatlist = ({ item }) => {
-    return <Book item={item} />;
+    return <BookNewRelease item={item} />;
   };
 
   const renderItemSection = ({ item, section }) =>
     section.horizontal ? null : <Book item={item} />;
-
-  // <TouchableOpacity
-  //   onPress={() => {
-  //     navigation.navigate("BookProfile", { itemId: item.id });
-  //   }}
-  // >
-  //   <Book style={styles._book} title={item.title} image={item.image} />
-  // </TouchableOpacity>
 
   return (
     <View style={styles._container}>
@@ -81,12 +75,12 @@ const styles = StyleSheet.create({
   _container: {
     paddingTop: 30,
     flex: 1,
-    backgroundColor: "#121212",
+    backgroundColor: "#ededed",
   },
   _sectionHeader: {
     fontFamily: "Montserrat_600SemiBold",
     fontSize: 18,
-    color: "#f4f4f4",
+    color: "#6b6b6b",
     marginTop: 20,
     marginBottom: 5,
     paddingLeft: 10,
@@ -100,7 +94,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   _bookTitle: {
-    color: "rgba(255, 255, 255, 0.5)",
+    // color: "rgba(255, 255, 255, 0.5)",
     marginTop: 5,
   },
 });
