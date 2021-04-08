@@ -32,9 +32,12 @@ const Home = ({ navigation }) => {
     );
   };
 
-  const renderItem = ({ item, section }) => {
+  const renderItemFlatlist = ({ item }) => {
     return <Book item={item} />;
   };
+
+  const renderItemSection = ({ item, section }) =>
+    section.horizontal ? null : <Book item={item} />;
 
   // <TouchableOpacity
   //   onPress={() => {
@@ -53,9 +56,19 @@ const Home = ({ navigation }) => {
           contentContainerStyle={{ paddingHorizontal: 10 }}
           stickySectionHeadersEnabled={false}
           renderSectionHeader={({ section }) => (
-            <Text style={styles._sectionHeader}>{section.sectionTitle}</Text>
+            <>
+              <Text style={styles._sectionHeader}>{section.sectionTitle}</Text>
+              {section.horizontal ? (
+                <FlatList
+                  horizontal
+                  data={section.data}
+                  showsHorizontalScrollIndicator={false}
+                  renderItem={renderItemFlatlist}
+                />
+              ) : null}
+            </>
           )}
-          renderItem={renderItem}
+          renderItem={renderItemSection}
         />
       </SafeAreaView>
     </View>
@@ -95,6 +108,7 @@ const styles = StyleSheet.create({
 const SECTIONS = [
   {
     sectionTitle: "New Release",
+    horizontal: true,
     data: [
       {
         key: "book_1",
@@ -130,6 +144,7 @@ const SECTIONS = [
   },
   {
     sectionTitle: "Best Selling",
+    horizontal: false,
     data: [
       {
         key: "book_1",
