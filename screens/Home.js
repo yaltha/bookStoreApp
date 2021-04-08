@@ -32,6 +32,17 @@ const Home = ({ navigation }) => {
         "Sunt enim ex officia non ut est aute proident consequat dolore amet ex non. Labore tempor occaecat aute fugiat laboris sunt occaecat. Adipisicing elit ex cillum cillum proident. Magna do quis do deserunt cupidatat quis ullamco minim aliqua. Enim aliquip elit fugiat irure sint velit pariatur anim voluptate eiusmod ea cupidatat.",
     },
   ]);
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("BookProfile", { itemId: item.id });
+      }}
+    >
+      <Book style={styles._book} title={item.title} image={item.image} />
+    </TouchableOpacity>
+  );
+
   return (
     <View style={styles._container}>
       <Text>Welcome</Text>
@@ -48,17 +59,10 @@ const Home = ({ navigation }) => {
         <Text>New Release</Text>
         <FlatList
           data={books}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate("BookProfile", { itemId: item.id });
-              }}
-            >
-              <Book title={item.title} />
-            </TouchableOpacity>
-          )}
+          renderItem={renderItem}
           keyExtractor={(item) => item.id}
           horizontal={true}
+          style={styles._newRelease}
         />
       </View>
 
@@ -66,17 +70,17 @@ const Home = ({ navigation }) => {
         <Text>Best Selling</Text>
         <FlatList
           data={books}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate("BookProfile", { itemId: item.id });
-              }}
-            >
-              <Book title={item.title} />
-            </TouchableOpacity>
-          )}
+          renderItem={renderItem}
+          // renderItem={({ item }) => (
+          //   <TouchableOpacity
+          //     onPress={() => {
+          //       navigation.navigate("BookProfile", { itemId: item.id });
+          //     }}
+          //   >
+          //     <Book title={item.title} image={item.image} />
+          //   </TouchableOpacity>
+          // )}
           keyExtractor={(item) => item.id}
-          horizontal={false}
         />
       </View>
     </View>
@@ -89,4 +93,29 @@ const styles = StyleSheet.create({
   _container: {
     paddingTop: 50,
   },
+  _book: {
+    width: 150,
+    height: 180,
+    backgroundColor: "white",
+    borderRadius: 10,
+    margin: 10,
+    padding: 5,
+    flex: 1,
+    justifyContent: "center",
+    // alignItems: "center",
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+  },
+  _newRelease:{
+    width: 150,
+    height: 180,
+  }
 });
