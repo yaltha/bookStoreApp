@@ -3,12 +3,13 @@ import { Image, StyleSheet, View } from "react-native";
 
 const Launching = () => {
   return (
-    <View style={styles._cont}>
-      {/* <Text>Launching</Text> */}
-      <Image
-        source={require("../assets/bookStore-logo.png")}
-        style={styles._logo}
-      />
+    <View style={styles._container}>
+      <View style={styles._logoContainer}>
+        <Image
+          source={require("../assets/bookStore-logo.png")}
+          style={styles._logo}
+        />
+      </View>
     </View>
   );
 };
@@ -16,13 +17,26 @@ const Launching = () => {
 export default Launching;
 
 const styles = StyleSheet.create({
-  _cont: {
+  _container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
+  _logoContainer: {
+    borderRadius: 50,
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+  },
   _logo: {
-    width: 50,
-    height: 50,
+    width: 100,
+    height: 100,
   },
 });

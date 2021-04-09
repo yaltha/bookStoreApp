@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
   },
   _homeContainer: {
     // padding: 20,
-    width: "100%",
-    height: "100%",
+    // width: "100%",
+    // height: "100%",
     backgroundColor: "white",
     borderRadius: 20,
 
@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   _bookTitle: {
-    // color: "rgba(255, 255, 255, 0.5)",
     marginTop: 5,
   },
 });

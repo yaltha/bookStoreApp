@@ -6,7 +6,18 @@ const BookBestSelling = ({ navigation, item }) => {
   return (
     <TouchableOpacity
       style={styles._book}
-      onPress={() => navigation.navigate("BookProfile", { itemId: item.key })}
+      onPress={() =>
+        navigation.navigate("BookProfile", {
+          itemId: item.key,
+          bookImage: item.uri,
+          bookTitle: item.title,
+          bookAuthor: item.author,
+          bookPages: item.pages,
+          bookPrice: item.price,
+          bookDescription: item.description,
+          isBestSelling: true
+        })
+      }
     >
       <Text style={styles._bookTitle}>{item.title}</Text>
       <Text style={styles._bookAuthor}>{item.author}</Text>
@@ -20,14 +31,14 @@ const BookBestSelling = ({ navigation, item }) => {
       </View>
     </TouchableOpacity>
   );
-};  
+};
 
 export default BookBestSelling;
 
 const styles = StyleSheet.create({
   _book: {
     backgroundColor: "#eee",
-    
+
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

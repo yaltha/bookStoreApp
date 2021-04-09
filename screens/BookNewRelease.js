@@ -6,7 +6,18 @@ const BookNewRelease = ({ item, navigation }) => {
   return (
     <TouchableOpacity
       style={styles._book}
-      onPress={() => navigation.navigate("BookProfile", { itemId: item.key })}
+      onPress={() =>
+        navigation.navigate("BookProfile", {
+          itemId: item.key,
+          bookImage: item.uri,
+          bookTitle: item.title,
+          bookAuthor: item.author,
+          bookPages: item.pages,
+          bookPrice: item.price,
+          bookDescription: item.description,
+          isNewRelease: true,
+        })
+      }
     >
       <Image source={{ uri: item.uri }} style={styles._bookImage} />
       <Text style={styles._bookTitle}>{item.title}</Text>
