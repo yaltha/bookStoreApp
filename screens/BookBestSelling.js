@@ -20,13 +20,14 @@ const BookBestSelling = ({ navigation, item }) => {
       </View>
     </TouchableOpacity>
   );
-};
+};  
 
 export default BookBestSelling;
 
 const styles = StyleSheet.create({
   _book: {
     backgroundColor: "#eee",
+    
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

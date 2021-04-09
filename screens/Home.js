@@ -5,7 +5,6 @@ import {
   SectionList,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
@@ -14,6 +13,7 @@ import { v4 as uuidv4 } from "uuid";
 import BookNewRelease from "./BookNewRelease";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import BookBestSelling from "./BookBestSelling";
+import HomeHeader from "./HomeHeader";
 
 const Home = ({ navigation }) => {
   const [books, setBooks] = useState(SECTIONS);
@@ -30,26 +30,32 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles._container}>
       <SafeAreaView style={{ flex: 1 }}>
-        <SectionList
-          sections={books}
-          // sections={SECTIONS}
-          contentContainerStyle={{ paddingHorizontal: 10 }}
-          stickySectionHeadersEnabled={false}
-          renderSectionHeader={({ section }) => (
-            <>
-              <Text style={styles._sectionHeader}>{section.sectionTitle}</Text>
-              {section.horizontal ? (
-                <FlatList
-                  horizontal
-                  data={section.data}
-                  showsHorizontalScrollIndicator={false}
-                  renderItem={renderItemFlatlist}
-                />
-              ) : null}
-            </>
-          )}
-          renderItem={renderItemSection}
-        />
+        <HomeHeader navigation={navigation} books={books} />
+        <View style={styles._homeContainer}>
+          <SectionList
+            sections={books}
+            // sections={SECTIONS}
+            contentContainerStyle={{ paddingHorizontal: 10 }}
+            stickySectionHeadersEnabled={false}
+            showsVerticalScrollIndicator={false}
+            renderSectionHeader={({ section }) => (
+              <>
+                <Text style={styles._sectionHeader}>
+                  {section.sectionTitle}
+                </Text>
+                {section.horizontal ? (
+                  <FlatList
+                    horizontal
+                    data={section.data}
+                    showsHorizontalScrollIndicator={false}
+                    renderItem={renderItemFlatlist}
+                  />
+                ) : null}
+              </>
+            )}
+            renderItem={renderItemSection}
+          />
+        </View>
       </SafeAreaView>
     </View>
   );
@@ -61,7 +67,24 @@ const styles = StyleSheet.create({
   _container: {
     paddingTop: 30,
     flex: 1,
-    backgroundColor: "#ededed",
+    // backgroundColor: "#ededed",
+  },
+  _homeContainer: {
+    // padding: 20,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "white",
+    borderRadius: 20,
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.0,
+
+    elevation: 24,
   },
   _sectionHeader: {
     fontFamily: "Montserrat_600SemiBold",
