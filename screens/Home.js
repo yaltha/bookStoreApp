@@ -11,7 +11,11 @@ import { FontAwesome } from "@expo/vector-icons";
 import { v4 as uuidv4 } from "uuid";
 
 import BookNewRelease from "./BookNewRelease";
-import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import {
+  FlatList,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 import BookBestSelling from "./BookBestSelling";
 import HomeHeader from "./HomeHeader";
 
@@ -30,32 +34,34 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles._container}>
       <SafeAreaView style={{ flex: 1 }}>
-        <HomeHeader navigation={navigation} books={books} />
-        <View style={styles._homeContainer}>
-          <SectionList
-            sections={books}
-            // sections={SECTIONS}
-            contentContainerStyle={{ paddingHorizontal: 10 }}
-            stickySectionHeadersEnabled={false}
-            showsVerticalScrollIndicator={false}
-            renderSectionHeader={({ section }) => (
-              <>
-                <Text style={styles._sectionHeader}>
-                  {section.sectionTitle}
-                </Text>
-                {section.horizontal ? (
-                  <FlatList
-                    horizontal
-                    data={section.data}
-                    showsHorizontalScrollIndicator={false}
-                    renderItem={renderItemFlatlist}
-                  />
-                ) : null}
-              </>
-            )}
-            renderItem={renderItemSection}
-          />
-        </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <HomeHeader navigation={navigation} books={books} />
+          <View style={styles._homeContainer}>
+            <SectionList
+              sections={books}
+              // sections={SECTIONS}
+              contentContainerStyle={{ paddingHorizontal: 10 }}
+              stickySectionHeadersEnabled={false}
+              showsVerticalScrollIndicator={false}
+              renderSectionHeader={({ section }) => (
+                <>
+                  <Text style={styles._sectionHeader}>
+                    {section.sectionTitle}
+                  </Text>
+                  {section.horizontal ? (
+                    <FlatList
+                      horizontal
+                      data={section.data}
+                      showsHorizontalScrollIndicator={false}
+                      renderItem={renderItemFlatlist}
+                    />
+                  ) : null}
+                </>
+              )}
+              renderItem={renderItemSection}
+            />
+          </View>
+        </ScrollView>
       </SafeAreaView>
     </View>
   );
@@ -70,11 +76,10 @@ const styles = StyleSheet.create({
     // backgroundColor: "#ededed",
   },
   _homeContainer: {
-    // padding: 20,
-    // width: "100%",
-    // height: "100%",
     backgroundColor: "white",
     borderRadius: 20,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
 
     shadowColor: "#000",
     shadowOffset: {

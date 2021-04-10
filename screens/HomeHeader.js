@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   _textAndAccount: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     padding: 10,
   },
   _wecomeText: {
