@@ -39,7 +39,6 @@ const Home = ({ navigation }) => {
           <View style={styles._homeContainer}>
             <SectionList
               sections={books}
-              // sections={SECTIONS}
               contentContainerStyle={{ paddingHorizontal: 10 }}
               stickySectionHeadersEnabled={false}
               showsVerticalScrollIndicator={false}
